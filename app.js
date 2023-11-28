@@ -138,33 +138,27 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-
 const profileWrapper = document.getElementById("profileWrapper");
 const profileDropdownWrapper = document.getElementById("profileDropdownWrapper");
 
 profileWrapper.addEventListener("click", function () {
+    if (notificationDropdownWrapper.style.display === "block") {
+        notificationDropdownWrapper.style.display = "none";
+    }
     profileDropdownWrapper.style.display = (profileDropdownWrapper.style.display === "block") ? "none" : "block";
 });
 
-
 profileDropdownWrapper.addEventListener("click", function () {
     profileDropdownWrapper.style.display = "none";
-})
+});
 
 const notificationWrapper = document.getElementById("notificationWrapper");
 const notificationDropdownWrapper = document.getElementById("notificationDropdownWrapper");
 
 notificationWrapper.addEventListener("click", function () {
+    if (profileDropdownWrapper.style.display === "block") {
+        profileDropdownWrapper.style.display = "none";
+    }
     notificationDropdownWrapper.style.display = (notificationDropdownWrapper.style.display === "block") ? "none" : "block";
 });
-
-
-
-
-
-
-
-
-
-
 
