@@ -141,8 +141,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 const profileWrapper = document.getElementById("profileWrapper");
 const profileDropdownWrapper = document.getElementById("profileDropdownWrapper");
-const notificationWrapper = document.getElementById("notificationWrapper");
-const notificationDropdownWrapper = document.getElementById("notificationDropdownWrapper");
 
 profileWrapper.addEventListener("click", function () {
     profileDropdownWrapper.style.display = (profileDropdownWrapper.style.display === "block") ? "none" : "block";
@@ -153,14 +151,17 @@ profileDropdownWrapper.addEventListener("click", function () {
     profileDropdownWrapper.style.display = "none";
 })
 
+const notificationWrapper = document.getElementById("notificationWrapper");
+const notificationDropdownWrapper = document.getElementById("notificationDropdownWrapper");
+
 notificationWrapper.addEventListener("click", function () {
     notificationDropdownWrapper.style.display = (notificationDropdownWrapper.style.display === "block") ? "none" : "block";
 });
 
 
-notificationDropdownWrapper.addEventListener("click", function () {
-    notificationDropdownWrapper.style.display = "none";
-})
+
+
+
 
 
 
