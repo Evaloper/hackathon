@@ -138,27 +138,73 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-const profileWrapper = document.getElementById("profileWrapper");
-const profileDropdownWrapper = document.getElementById("profileDropdownWrapper");
 
-profileWrapper.addEventListener("click", function () {
-    if (notificationDropdownWrapper.style.display === "block") {
-        notificationDropdownWrapper.style.display = "none";
-    }
-    profileDropdownWrapper.style.display = (profileDropdownWrapper.style.display === "block") ? "none" : "block";
-});
-
-profileDropdownWrapper.addEventListener("click", function () {
-    profileDropdownWrapper.style.display = "none";
-});
+// Notification toggle
 
 const notificationWrapper = document.getElementById("notificationWrapper");
 const notificationDropdownWrapper = document.getElementById("notificationDropdownWrapper");
 
 notificationWrapper.addEventListener("click", function () {
-    if (profileDropdownWrapper.style.display === "block") {
+    const isExpanded = notificationWrapper.getAttribute("aria-expanded") === "true";
+
+    notificationWrapper.setAttribute("aria-expanded", isExpanded ? "false" : "true");
+
+
+    const profileDropdownWrapper = document.getElementById("profileDropdownWrapper");
+    if (getComputedStyle(profileDropdownWrapper).display === "block") {
         profileDropdownWrapper.style.display = "none";
     }
-    notificationDropdownWrapper.style.display = (notificationDropdownWrapper.style.display === "block") ? "none" : "block";
+
+    // Toggle display of notification dropdown
+    notificationDropdownWrapper.style.display = (getComputedStyle(notificationDropdownWrapper).display === "block") ? "none" : "block";
 });
+
+
+// Profile Toggle
+const profileWrapper = document.getElementById("profileWrapper");
+const profileDropdownWrapper = document.getElementById("profileDropdownWrapper");
+
+profileWrapper.addEventListener("click", function (event) {
+    const isExpanded = profileWrapper.getAttribute("aria-expanded") === "true";
+
+
+    profileWrapper.setAttribute("aria-expanded", isExpanded ? "false" : "true");
+
+
+    const notificationWrapper = document.getElementById("notificationWrapper");
+    const notificationDropdownWrapper = document.getElementById("notificationDropdownWrapper");
+
+    if (getComputedStyle(notificationDropdownWrapper).display === "block") {
+        notificationDropdownWrapper.style.display = "none";
+        notificationWrapper.setAttribute("aria-expanded", "false");
+    }
+
+    // Toggle display of profile dropdown
+    profileDropdownWrapper.style.display = (getComputedStyle(profileDropdownWrapper).display === "block") ? "none" : "block";
+
+    // Set focus to the first item in the dropdown if it is expanded
+    if (!isExpanded) {
+        const firstItem = profileDropdownWrapper.querySelector("li:first-child");
+        if (firstItem) {
+            firstItem.focus();
+        }
+    }
+
+    event.preventDefault();
+});
+
+profileDropdownWrapper.addEventListener("click", function (event) {
+
+    profileDropdownWrapper.style.display = "none";
+
+    event.stopPropagation();
+});
+
+document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+        profileDropdownWrapper.style.display = "none";
+        profileWrapper.setAttribute("aria-expanded", "false");
+    }
+});
+
 

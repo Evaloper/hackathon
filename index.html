@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -13,14 +14,16 @@
 <body>
     <header class="header">
         <div class="logo">
-            <a href="shopify.com" class="desktop-logo">
+            <a href="shopify.com" class="desktop-logo" aria-label="Shopify Home" role="link">
                 <img src="https://crushingit.tech/hackathon-assets/shopify-icon-desktop.svg" alt="logo" />
             </a>
-            <a href="shopify.com" class="mobile-logo">
+            <a href="shopify.com" class="mobile-logo" aria-label="Shopify Home" role="link">
                 <img src="https://crushingit.tech/hackathon-assets/shopify-icon.svg" alt="logo" />
             </a>
         </div>
-        <div class="search-bar">
+
+        <!-- Search Bar -->
+        <div class="search-bar" role="search">
             <div class="search-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 13 14" fill="none">
                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -28,18 +31,25 @@
                         fill="#B5B5B5" />
                 </svg>
             </div>
-            <input type="text" placeholder="Search" id="searchInput" />
+            <input type="text" placeholder="Search" role="search" aria-label="search" />
         </div>
-        <div class="profile">
+
+        <!-- Profile Section  -->
+        <div class="profile" role="navigation" ari>
+            <!-- Notification  -->
             <div class="notification-wrapper" id="notificationWrapper">
-                <button class="notification">
+                <button class="notification" aria-haspopup="true" aria-expanded="false"
+                    aria-controls="notificationDropdownWrapper" id="notification" aria-label="notification">
                     <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd"
                             d="M4.25203 11.4239L1.8061 11.1427C-0.0485648 10.9295 -0.574575 8.48437 1.02838 7.52739L1.0933 7.48863C1.966 6.96761 2.50045 6.02609 2.50045 5.00969V4.5C2.50045 2.01472 4.51517 0 7.00045 0C9.48573 0 11.5005 2.01472 11.5005 4.5V5.00969C11.5005 6.02609 12.0349 6.96761 12.9076 7.48863L12.9725 7.52739C14.5755 8.48438 14.0495 10.9295 12.1948 11.1427L9.65203 11.435V11.8C9.65203 13.2912 8.4432 14.5 6.95203 14.5C5.46086 14.5 4.25203 13.2912 4.25203 11.8V11.4239ZM8.15203 11.5H5.75203V11.8C5.75203 12.4627 6.28929 13 6.95203 13C7.61477 13 8.15203 12.4627 8.15203 11.8V11.5ZM5.00045 10H9.00045L12.0235 9.65252C12.453 9.60316 12.5748 9.03693 12.2036 8.81532L12.1387 8.77656C12.0591 8.72907 11.9815 8.67929 11.9057 8.62731C11.7506 8.52097 11.6036 8.40546 11.4651 8.28179C11.4405 8.25985 11.4162 8.23766 11.3922 8.21521C10.5144 7.39498 10.0005 6.23833 10.0005 5.00969V4.5C10.0005 2.84315 8.65731 1.5 7.00045 1.5C5.3436 1.5 4.00045 2.84315 4.00045 4.5V5.00969C4.00045 6.23833 3.48651 7.39498 2.60871 8.21521C2.58469 8.23766 2.56039 8.25985 2.53583 8.28179C2.39734 8.40546 2.25029 8.52097 2.09523 8.62731C2.01945 8.67928 1.94176 8.72907 1.86222 8.77656L1.79729 8.81532C1.4261 9.03693 1.5479 9.60316 1.97739 9.65252L5.00045 10Z"
                             fill="#E3E3E3" />
                     </svg>
                 </button>
-                <div class="notification-dropdown-wrapper" id="notificationDropdownWrapper">
+
+                <!-- Notification dropdown  -->
+                <div class="notification-dropdown-wrapper" id="notificationDropdownWrapper"
+                    aria-labelledby="notification" role="alert" aria-live="assertive" aria-atomic="true">
                     <div class="notification-dropdown">
                         <div class="alert">
                             <p>Alerts</p>
@@ -77,11 +87,14 @@
                     </div>
                 </div>
             </div>
-            <div class="profile-wrapper" id="profileWrapper">
-                <button class="fullname">Davii Collections</button>
-                <button class="initials">DC</button>
+            <!-- Profile  -->
+            <div class="profile-wrapper" id="profileWrapper" role="menu" aria-haspopup="menu" aria-expanded="false"
+                aria-controls="profileDropdownWrapper">
+                <button class="fullname" aria-haspopup="true" aria-label="User Profile">Davii Collections</button>
+                <button class="initials" aria-haspopup="true" aria-label="User Initials">DC</button>
             </div>
-            <div class="profile-dropdown-wrapper" id="profileDropdownWrapper">
+            <div class="profile-dropdown-wrapper" id="profileDropdownWrapper" role="menuitem"
+                aria-labelledby="profileWrapper">
                 <div class="profile-dropdown">
                     <div class="profile-name">
                         <div class="initial-name">
@@ -104,20 +117,20 @@
                             <p>All stores</p>
                         </div>
                     </div>
-                    <ul class="lists-1">
-                        <li>Help Center</li>
-                        <li>Changelog</li>
-                        <li>Community forums</li>
-                        <li>Hire a shopify Partner</li>
-                        <li>Keyboard shortcuts</li>
+                    <ul class="lists-1" role="list">
+                        <li role="listitem">Help Center</li>
+                        <li role="listitem">Changelog</li>
+                        <li role="listitem">Community forums</li>
+                        <li role="listitem">Hire a shopify Partner</li>
+                        <li role="listitem">Keyboard shortcuts</li>
                     </ul>
-                    <ul class="lists-2">
-                        <li class="user-mail">
+                    <ul class="lists-2" role="list">
+                        <li class="user-mail" role="listitem">
                             <p class="name">David Micheal</p>
                             <p class="mail">davidmichael@gmail.com</p>
                         </li>
-                        <li>Manage account</li>
-                        <li>Log out</li>
+                        <li role="listitem">Manage account</li>
+                        <li role="list">Log out</li>
                     </ul>
                 </div>
             </div>
@@ -154,16 +167,18 @@
                 <p class="para2">
                     Use this personalized guide to get your store up and running.
                 </p>
-                <div class="signal">
+
+                <!-- signal Status -->
+                <div class="signal" role="status">
                     <p id="signalPara">0 / 5 completed</p>
                     <div id="myProgress">
                         <div id="myBar"></div>
                     </div>
                 </div>
             </div>
-            <div id="toggledContents">
+            <div id="toggledContents" role="region" aria-live="polite">
                 <!-- customize section starts -->
-                <div class="customize-section" id="customize-section-1">
+                <div class="customize-section" id="customize-section-1" role="region" aria-live="polite">
                     <div class="heading-div">
                         <div class="tick-svg">
                             <svg class="loading" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
@@ -193,7 +208,7 @@
                 <!-- customize section ends       -->
 
                 <!-- products section starts       -->
-                <div class="customize-section" id="customize-section2">
+                <div class="customize-section" id="customize-section2" role="region" aria-live="polite">
                     <div class="heading-div">
                         <div class="tick-svg">
                             <svg class="loading" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
@@ -223,7 +238,7 @@
                 <!-- products section ends       -->
 
                 <!-- domain section starts       -->
-                <div class="customize-section" id="customize-section-3">
+                <div class="customize-section" id="customize-section-3" role="region" aria-live="polite">
                     <div class="heading-div">
                         <div class="tick-svg">
                             <svg class="loading" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
@@ -253,7 +268,7 @@
                 <!-- domain section ends       -->
 
                 <!-- store section starts       -->
-                <div class="customize-section" id="customize-section-4">
+                <div class="customize-section" id="customize-section-4" role="region" aria-live="polite">
                     <div class="heading-div">
                         <div class="tick-svg">
                             <svg class="loading" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
@@ -283,7 +298,7 @@
                 <!-- store section ends       -->
 
                 <!-- payment section starts       -->
-                <div class="customize-section" id="customize-section-5">
+                <div class="customize-section" id="customize-section-5" role="region" aria-live="polite">
                     <div class="heading-div">
                         <div class="tick-svg">
                             <svg class="loading" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
