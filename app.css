@@ -534,8 +534,13 @@ main {
     width: fit-content;
   }
 
-  .notification-dropdown-wrapper {
-    left: 10px;
+  .search-bar > input {
+    width: 180px;
+  }
+
+  .notification-dropdown-wrapper,
+  .profile-dropdown-wrapper {
+    right: 0;
     width: 320px;
   }
 }
