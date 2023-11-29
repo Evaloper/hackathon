@@ -294,11 +294,19 @@ main {
   font-weight: 600;
 }
 
+.select-plan-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
 .select-plan {
   border-radius: 6px;
   padding: 5px 10px;
   border: none;
   margin-right: 10px;
+  height: 28px;
 }
 
 #closeDiv {
@@ -470,7 +478,7 @@ main {
   margin-top: 16px;
   font-size: 12px;
   font-weight: 600;
-  box-shadow: 0px 1px 1px 1px #ffffff74 inset, 0px 2px 0px 0px #404040;
+  box-shadow: 0px 1px 0px 0px #ffffff74 inset, 0px 1px 0px 0px #404040;
   /* border: 1.5px 1.5px 0 1.5px; */
 }
 
@@ -543,6 +551,14 @@ main {
     border-radius: 0;
   }
 
+  .select-plan {
+    margin-bottom: 12px;
+  }
+
+  .select-plan-btn {
+    display: block;
+  }
+
   .first-div {
     border-radius: 0;
   }
@@ -554,6 +570,18 @@ main {
   .subscription-text {
     height: 104px;
     border-radius: 0;
+  }
+
+  .description-image-div > img {
+    display: none;
+  }
+
+  .cloud {
+    display: none;
+  }
+
+  .description {
+    font-size: 14px;
   }
 }
 

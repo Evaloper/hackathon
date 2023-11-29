@@ -37,38 +37,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
             allSections.forEach(function (section) {
                 section.classList.remove("active");
-                // Set cursor to pointer for inactive sections
+
                 section.style.cursor = "pointer";
             });
 
             headingDiv.parentNode.classList.add("active");
 
-            // Show the clicked descriptionDivContents and imageDiv
+
             const content = headingDiv.querySelector(".description-section");
             const image = headingDiv.nextElementSibling;
 
             if (content.style.display === "none" || content.style.display === "") {
                 content.style.display = "block";
                 image.style.display = "block";
-                // Set cursor to default when content is displayed
+
                 headingDiv.parentNode.style.cursor = "default";
             } else {
                 content.style.display = "none";
                 image.style.display = "none";
-                // Set cursor to pointer when content is hidden
+
                 headingDiv.parentNode.style.cursor = "pointer";
             }
         });
 
-        // Set default background color for the first customize-section
+
         if (index === 0) {
             headingDiv.parentNode.classList.add("active");
-            // Show description-section content for the first section by default
+
             const content = headingDiv.querySelector(".description-section");
             const image = headingDiv.nextElementSibling;
             content.style.display = "block";
             image.style.display = "block";
-            // Set cursor to default for the default section
+
             headingDiv.parentNode.style.cursor = "default";
         }
     });
